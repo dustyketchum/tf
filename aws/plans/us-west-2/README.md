@@ -91,7 +91,7 @@ Apply complete! Resources: xx added, 0 changed, 0 destroyed.
 6. aws eks --region us-west-2 update-kubeconfig --name usw2-prod-01
 
 ```
-Added new context arn:aws:eks:us-east-2:476728484325:cluster/usw2-prod-01 to ~\.kube\config
+Added new context arn:aws:eks:us-east-2:476728484325:cluster/usw2-prod-01 to ~/.kube/config
 ```
 
 7. eksctl utils associate-iam-oidc-provider --region us-west-2 --cluster usw2-prod-01 --approve
