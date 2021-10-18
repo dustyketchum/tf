@@ -6,11 +6,17 @@ The modules are designed to create multiple VPCs
 and EKS clusters in any region, though these 
 capabilities have only been partially tested.
 
+Some of the installation instructions and the 
+example echoserver deployment are copied from here
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/deploy/installation/
+
 Next steps / potential enhancements:
 - Use terraform remote state to resolve subnet issue (see below).
 - Use terraform remote state to use one set of EKS IAM 
   roles per environment instead of in each terraform plan.
 - Use github for the dockerfile instead of instead of codecommit.
+  (part of the k8s github repo is currently a manual mirror of my 
+  private ecr repo)
 - Automate build pipeline so image is rebuilt and redeployed automatically
   whenever there's a source code update.
 - Implement role based access control within the kubernetes cluster.
