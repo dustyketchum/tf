@@ -1,21 +1,18 @@
 ```
-Create AWS VPCs, EKS IAM roles, EKS clusters and nodes, 
-then deploy a simple web app using an AWS ALB 
-and the AWS Load Balancer Controller.
-
-Then use Github Actions to rebuild the docker image and push 
-the image to ECR whenever there's a commit.
+- Create AWS VPCs, EKS IAM roles, EKS clusters and nodes
+- Deploy a simple web app using an AWS ALB and the AWS Load Balancer Controller.
+- Use Github Actions to rebuild the docker image and push the image to ECR whenever there's a commit.
+- Use Github Actions to perform a kubernetes rolling update to deploy the latest image
 
 The terraform modules are designed to create multiple VPCs 
-and EKS clusters in any region, though these capabilities 
-have only been partially tested.
+and EKS clusters in any region.
 
 Some of the installation instructions and the 
 example echoserver deployment are copied from here
 https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/deploy/installation/
 
 Next steps / potential enhancements:
-- Make a package for eks-kubectl-action to avoid building it every time.
+- Make a package for eks-kubectl-action to avoid building it every time it is used.
 #https://github.com/ianbelcher/eks-kubectl-action/issues/9
 - Use terraform remote state to resolve subnet issue (see below).
 - Use terraform remote state to use one set of EKS IAM 
