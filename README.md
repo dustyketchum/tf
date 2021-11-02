@@ -48,7 +48,7 @@ curl -o aws-lbc-iam-policy.json https://raw.githubusercontent.com/kubernetes-sig
 
 https://github.com/marketplace/actions/docker-ecr \
 https://github.com/marketplace/actions/eks-kubectl \
-https://prabhatsharma.in/blog/amazon-eks-iam-authentication-how-to-add-an-iam-user/ \
+https://prabhatsharma.in/blog/amazon-eks-iam-authentication-how-to-add-an-iam-user/ 
 
 GithubActionsPolicy is a union of the above policies that allows the user to\
 a. view the cluster run update-kubeconfig\
@@ -66,7 +66,7 @@ b. push new images into and pull images from ECR to run docker build and perform
 }
 
 
-# Create and deploy to each EKS cluster:
+# Create and deploy to the EKS cluster
 
 1. ```cd ~/tf/aws/plans/us-west-2```
 2. ```terraform init```
