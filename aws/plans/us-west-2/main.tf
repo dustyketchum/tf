@@ -1,4 +1,4 @@
-module "us-west-2-acm-cert" {
+module "acm-cert" {
   domain_name = "highestpavedroadsinthealps.com"
   fqdn        = "us-west-2.highestpavedroadsinthealps.com"
   source      = "../../modules/aws-acm-certificate"
