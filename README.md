@@ -15,7 +15,7 @@ https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/deploy/insta
 
 Next steps / potential enhancements:
 - Make a package for eks-kubectl-action to avoid building it every time it is used.
-#https://github.com/ianbelcher/eks-kubectl-action/issues/9
+https://github.com/ianbelcher/eks-kubectl-action/issues/9
 - Use terraform remote state to resolve subnet issue (see below).
 - Use terraform remote state to use one set of EKS IAM 
   roles per environment instead of in each terraform plan.
@@ -140,7 +140,7 @@ Select the certificate.\
 Under Certificate status, copy the ARN for the certificate into your clipboard.
 
 14. Open echoserver-ingress.yaml in an editor.\
-Replace the annotation for ```alb.ingress.kubernetes.io/certificate-arn:``` with the value in your clidpboard.\
+Replace the annotation for ```alb.ingress.kubernetes.io/certificate-arn:``` with the value in your clipboard.\
 Save echoserver-ingress.yaml
 
 15. ```kubectl apply -f echoserver-ingress.yaml```
