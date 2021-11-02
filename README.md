@@ -38,17 +38,18 @@ curl -o aws-lbc-iam-policy.json https://raw.githubusercontent.com/kubernetes-sig
 3. ```aws iam create-policy --policy-name AWSLoadBalancerControllerPolicy --policy-document file://aws-lbc-iam-policy.json```
 
 {\
-    "Policy": {\
-        "PolicyName": "AWSLoadBalancerControllerPolicy",\
-        "PolicyId": "ANPAWxxx",\
-        "Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerPolicy",\
+&nbsp;&nbsp"Policy": {\
+&nbsp;&nbsp&nbsp;&nbsp"PolicyName": "AWSLoadBalancerControllerPolicy",\
+&nbsp;&nbsp&nbsp;&nbsp"PolicyId": "ANPAWxxx",\
+&nbsp;&nbsp&nbsp;&nbsp"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerPolicy",\
 ...\
-    }\
-}\
+&nbsp;&nbsp}\
+}
 
-https://github.com/marketplace/actions/docker-ecr\
-https://github.com/marketplace/actions/eks-kubectl\
-https://prabhatsharma.in/blog/amazon-eks-iam-authentication-how-to-add-an-iam-user/\
+https://github.com/marketplace/actions/docker-ecr \
+https://github.com/marketplace/actions/eks-kubectl \
+https://prabhatsharma.in/blog/amazon-eks-iam-authentication-how-to-add-an-iam-user/ \
+
 GithubActionsPolicy is a union of the above policies that allows the user to\
 a. view the cluster run update-kubeconfig\
 b. push new images into and pull images from ECR to run docker build and perform deployments upon checkin\
@@ -56,13 +57,13 @@ b. push new images into and pull images from ECR to run docker build and perform
 4. ```aws iam create-policy --policy-name GithubActionsPolicy --policy-document file://github-actions-iam-policy.json```
 
 {\
-    "Policy": {\
-        "PolicyName": "GithubActionsPolicy",\
-        "PolicyId": "ANPAWxxx",\
-        "Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/GithubActionsPolicy,\
+&nbsp;&nbsp"Policy": {\
+&nbsp;&nbsp&nbsp;&nbsp"PolicyName": "GithubActionsPolicy",\
+&nbsp;&nbsp&nbsp;&nbsp"PolicyId": "ANPAWxxx",\
+&nbsp;&nbsp&nbsp;&nbsp"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/GithubActionsPolicy,\
 ...\
-    }\
-}\
+&nbsp;&nbsp}\
+}
 
 
 # Create and deploy to each EKS cluster:
@@ -97,7 +98,7 @@ Added new context arn:aws:eks:us-east-2:xxxxxxxxxxxx:cluster/usw2-prod-01 to ~/.
 2021-10-17 06:45:25 [?]  eksctl version 0.69.0\
 2021-10-17 06:45:25 [?]  using region us-west-2\
 2021-10-17 06:45:25 [?]  will create IAM Open ID Connect provider for cluster "usw2-prod-01" in "us-west-2"\
-2021-10-17 06:45:26 [?]  created IAM Open ID Connect provider for cluster "usw2-prod-01" in "us-west-2"\
+2021-10-17 06:45:26 [?]  created IAM Open ID Connect provider for cluster "usw2-prod-01" in "us-west-2"
 
 8. ```eksctl create iamserviceaccount --region us-west-2 --cluster=usw2-prod-01 --namespace=kube-system --name=aws-load-balancer-controller --attach-policy-arn=arn:aws:iam::476728484325:policy/AWSLoadBalancerControllerPolicy --override-existing-serviceaccounts --approve```
 
@@ -109,7 +110,7 @@ Added new context arn:aws:eks:us-east-2:xxxxxxxxxxxx:cluster/usw2-prod-01 to ~/.
 2021-10-17 06:47:23 [?]  building iamserviceaccount stack "eksctl-prod-01-addon-iamserviceaccount-kube-system-aws-load-balancer-controller"\
 2021-10-17 06:47:23 [?]  deploying stack "eksctl-prod-01-addon-iamserviceaccount-kube-system-aws-load-balancer-controller"\
 2021-10-17 06:47:23 [?]  waiting for CloudFormation stack "eksctl-prod-01-addon-iamserviceaccount-kube-system-aws-load-balancer-controller"\
-2021-10-17 06:48:01 [?]  created serviceaccount "kube-system/aws-load-balancer-controller"\
+2021-10-17 06:48:01 [?]  created serviceaccount "kube-system/aws-load-balancer-controller"
 
 9. ```helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=usw2-prod-01 --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller```
 
@@ -120,7 +121,7 @@ STATUS: deployed\
 REVISION: 1\
 TEST SUITE: None\
 NOTES:\
-AWS Load Balancer controller installed!\
+AWS Load Balancer controller installed!
 
 10. ```kubectl apply -f echoserver-namespace.yaml```
 
@@ -137,7 +138,7 @@ deployment.apps/echoserver created
 13. ```kubectl apply -f echoserver-ingress.yaml```
 
 Warning: networking.k8s.io/v1beta1 Ingress is deprecated in v1.19+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress\
-ingress.networking.k8s.io/echoserver created\
+ingress.networking.k8s.io/echoserver created
 
 14. The Locate the new ALB in the AWS console and find its DNS record.  
     Create or update route53 A or Alias record (ie us-west-2.highestpavedroadsinthealps.com) 
@@ -159,14 +160,14 @@ Check GithubActionsPolicy\
 Select Next: Tags\
 Select Next: Review\
 Select Create User\
-Select Secret Access Key Show\
+Select Secret Access Key Show
 
 2. In another window add your AWS secrets to your Github repository\
 In your Github repo, select Settings, then Secrets\
 Add Repository secrets\
 AWS_ACCESS_KEY_ID\
 AWS_SECRET_ACCESS_KEY\
-Copy and paste the values from the IAM window in the prior step\
+Copy and paste the values from the IAM window in the prior step
 
 https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
 
@@ -174,7 +175,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
 
 Do not add the root user below if you created the eks console using root credentials,
 this is just an example.\
-Add the following after mapRoles to map the githubactions iam user:\
+Add the following after mapRoles to map the githubactions iam user:
 ```
   mapUsers: |
     - userarn: arn:aws:iam::476728484325:user/githubactions
