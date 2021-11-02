@@ -39,9 +39,9 @@ curl -o aws-lbc-iam-policy.json https://raw.githubusercontent.com/kubernetes-sig
 
 {\
 &nbsp;&nbsp;"Policy": {\
-&nbsp;&nbsp&nbsp;&nbsp;"PolicyName": "AWSLoadBalancerControllerPolicy",\
-&nbsp;&nbsp&nbsp;&nbsp;"PolicyId": "ANPAWxxx",\
-&nbsp;&nbsp&nbsp;&nbsp;"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerPolicy",\
+&nbsp;&nbsp;&nbsp;&nbsp;"PolicyName": "AWSLoadBalancerControllerPolicy",\
+&nbsp;&nbsp;&nbsp;&nbsp;"PolicyId": "ANPAWxxx",\
+&nbsp;&nbsp;&nbsp;&nbsp;"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerPolicy",\
 ...\
 &nbsp;&nbsp;}\
 }
@@ -58,9 +58,9 @@ b. push new images into and pull images from ECR to run docker build and perform
 
 {\
 &nbsp;&nbsp;"Policy": {\
-&nbsp;&nbsp&nbsp;&nbsp;"PolicyName": "GithubActionsPolicy",\
-&nbsp;&nbsp&nbsp;&nbsp;"PolicyId": "ANPAWxxx",\
-&nbsp;&nbsp&nbsp;&nbsp;"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/GithubActionsPolicy,\
+&nbsp;&nbsp;&nbsp;&nbsp;"PolicyName": "GithubActionsPolicy",\
+&nbsp;&nbsp;&nbsp;&nbsp;"PolicyId": "ANPAWxxx",\
+&nbsp;&nbsp;&nbsp;&nbsp;"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/GithubActionsPolicy,\
 ...\
 &nbsp;&nbsp;\
 }
