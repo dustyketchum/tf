@@ -135,12 +135,12 @@ service/echoserver created
 
 deployment.apps/echoserver created
 
-13. Using the AWS Certificate Manager console, locate the certificate created by terraform for us-west-2.highestpavedroadsinthealps.com
-Select the certificate.
+13. Using the AWS Certificate Manager console, locate the certificate created by terraform for us-west-2.highestpavedroadsinthealps.com\
+Select the certificate.\
 Under Certificate status, copy the ARN for the certificate into your clipboard.
 
-14. Open echoserver-ingress.yaml in an editor.
-Replace the annotation for ```alb.ingress.kubernetes.io/certificate-arn:``` with the value in your clidpboard.
+14. Open echoserver-ingress.yaml in an editor.\
+Replace the annotation for ```alb.ingress.kubernetes.io/certificate-arn:``` with the value in your clidpboard.\
 Save echoserver-ingress.yaml
 
 15. ```kubectl apply -f echoserver-ingress.yaml```
@@ -148,8 +148,8 @@ Save echoserver-ingress.yaml
 Warning: networking.k8s.io/v1beta1 Ingress is deprecated in v1.19+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress\
 ingress.networking.k8s.io/echoserver created
 
-16. The Locate the new ALB in the AWS console and find its DNS record.  
-    Create or update route53 A or Alias record (ie us-west-2.highestpavedroadsinthealps.com) 
+16. The Locate the new ALB in the AWS console and find its DNS record.
+    Create or update route53 A or Alias record (ie us-west-2.highestpavedroadsinthealps.com)
     to point dns entry for the new ALB once it is created.
 
 17. Browse to http://us-west-2.highestpavedroadsinthealps.com/ to verify the flask application is running.
