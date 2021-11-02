@@ -1,3 +1,9 @@
+module "us-west-2" {
+  domain_name = "highestpavedroadsinthealps.com"
+  fqdn        = "us-west-2.highestpavedroadsinthealps.com"
+  source      = "../../modules/aws-acm-certificate"
+}
+
 module "eks-iam-roles" {
   name   = "usw2"
   source = "../../modules/eks-iam-roles"
