@@ -38,12 +38,12 @@ curl -o aws-lbc-iam-policy.json https://raw.githubusercontent.com/kubernetes-sig
 3. ```aws iam create-policy --policy-name AWSLoadBalancerControllerPolicy --policy-document file://aws-lbc-iam-policy.json```
 
 {\
-&nbsp;&nbsp"Policy": {\
-&nbsp;&nbsp&nbsp;&nbsp"PolicyName": "AWSLoadBalancerControllerPolicy",\
-&nbsp;&nbsp&nbsp;&nbsp"PolicyId": "ANPAWxxx",\
-&nbsp;&nbsp&nbsp;&nbsp"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerPolicy",\
+&nbsp;&nbsp;"Policy": {\
+&nbsp;&nbsp&nbsp;&nbsp;"PolicyName": "AWSLoadBalancerControllerPolicy",\
+&nbsp;&nbsp&nbsp;&nbsp;"PolicyId": "ANPAWxxx",\
+&nbsp;&nbsp&nbsp;&nbsp;"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerPolicy",\
 ...\
-&nbsp;&nbsp}\
+&nbsp;&nbsp;}\
 }
 
 https://github.com/marketplace/actions/docker-ecr \
@@ -57,12 +57,12 @@ b. push new images into and pull images from ECR to run docker build and perform
 4. ```aws iam create-policy --policy-name GithubActionsPolicy --policy-document file://github-actions-iam-policy.json```
 
 {\
-&nbsp;&nbsp"Policy": {\
-&nbsp;&nbsp&nbsp;&nbsp"PolicyName": "GithubActionsPolicy",\
-&nbsp;&nbsp&nbsp;&nbsp"PolicyId": "ANPAWxxx",\
-&nbsp;&nbsp&nbsp;&nbsp"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/GithubActionsPolicy,\
+&nbsp;&nbsp;"Policy": {\
+&nbsp;&nbsp&nbsp;&nbsp;"PolicyName": "GithubActionsPolicy",\
+&nbsp;&nbsp&nbsp;&nbsp;"PolicyId": "ANPAWxxx",\
+&nbsp;&nbsp&nbsp;&nbsp;"Arn": "arn:aws:iam::xxxxxxxxxxxx:policy/GithubActionsPolicy,\
 ...\
-&nbsp;&nbsp}\
+&nbsp;&nbsp;\
 }
 
 
@@ -162,7 +162,8 @@ Select Next: Review\
 Select Create User\
 Select Secret Access Key Show
 
-2. In another window add your AWS secrets to your Github repository\
+2. In another window add your AWS secrets to your Github repository
+
 In your Github repo, select Settings, then Secrets\
 Add Repository secrets\
 AWS_ACCESS_KEY_ID\
