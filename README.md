@@ -19,6 +19,7 @@ https://github.com/ianbelcher/eks-kubectl-action/issues/9
 - Use terraform remote state to resolve subnet issue (see below).
 - Use terraform remote state to use one set of EKS IAM 
   roles per environment instead of in each terraform plan.
+- Use terraform to create the IAM policies instead of command line.
 
 Expected output (sometimes trunacted output) from each step 
 is in comments below each deployment step
@@ -51,8 +52,8 @@ https://github.com/marketplace/actions/eks-kubectl \
 https://prabhatsharma.in/blog/amazon-eks-iam-authentication-how-to-add-an-iam-user/ 
 
 GithubActionsPolicy is a union of the above policies that allows the user to\
-a. view the cluster run update-kubeconfig\
-b. push new images into and pull images from ECR to run docker build and perform deployments upon checkin\
+a. view the cluster to run update-kubeconfig\
+b. push new images into and pull images from ECR to run docker build and perform deployments upon checkin
 
 4. ```aws iam create-policy --policy-name GithubActionsPolicy --policy-document file://github-actions-iam-policy.json```
 
@@ -182,7 +183,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
 
 3. ```kubectl edit -n kube-system configmap/aws-auth```
 
-Do not add the root user below if you created the eks console using root credentials,
+Do not add the root user below if you created the eks cluster using root credentials,
 this is just an example.\
 Add the following after mapRoles to map the githubactions iam user:
 ```
